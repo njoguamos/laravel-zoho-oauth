@@ -1,9 +1,11 @@
 ![Image](https://github.com/njoguamos/laravel-zoho-oauth/blob/gh-pages/images/Cover.png)
 # Generate Zoho API Access and Refresh Token
 
-![run-tests](https://github.com/njoguamos/laravel-zoho-oauth/workflows/run-tests/badge.svg)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/njoguamos/laravel-zoho-oauth.svg?style=flat-square)](https://packagist.org/packages/njoguamos/laravel-zoho-oauth)
-[![Total Downloads](https://img.shields.io/packagist/dt/njoguamos/laravel-zoho-oauth.svg?style=flat-square)](https://packagist.org/packages/njoguamos/laravel-zoho-oauth)
+![Tests](https://github.com/njoguamos/laravel-zoho-oauth/workflows/run-tests/badge.svg)
+[![License](https://img.shields.io/github/license/njoguamos/laravel-zoho-oauth.svg)](https://github.com/njoguamos/laravel-zoho-oauth)
+[![Latest Stable Version](https://img.shields.io/packagist/v/njoguamos/laravel-zoho-oauth.svg)](https://packagist.org/packages/njoguamos/laravel-zoho-oauth)
+![Issues](https://img.shields.io/github/issues/njoguamos/laravel-zoho-oauth)
+
 
 
 ## Documentation, Installation, and Usage Instructions
