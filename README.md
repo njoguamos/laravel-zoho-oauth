@@ -14,15 +14,16 @@ See the [DOCUMENTATION](https://njoguamos.github.io/laravel-zoho-oauth/) for det
 ## Why use this package
 1. To automate generation of a permanent zoho api `refresh_token`
 2. To provide a way of generating zoho api `access_token` which normally expires after a particular period
+3. Offer a gateway to intereacting with Zoho API
 
 
-### Testing
+## Testing
 
 ``` bash
 composer test
 ```
 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
@@ -30,7 +31,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
+## Security
 
 If you discover any security related issues, please email njoguamos@gmail.com instead of using the issue tracker.
 
