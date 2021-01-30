@@ -2,7 +2,6 @@
 
 namespace Njoguamos\LaravelZohoOauth\Database\Factories;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Njoguamos\LaravelZohoOauth\Models\ZohoOauth;
@@ -26,7 +25,35 @@ class ZohoOauthFactory extends Factory
         return [
             'refresh_token' => Str::random(32),
             'access_token'  => Str::random(40),
-            'expires_in'    => Carbon::now()->addMinutes(50)
+            'expires_at'    => now()->addMinutes(50)
         ];
+    }
+
+    /**
+     * Indicate if a token is recent.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function recent()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'created_at' => now()->subMinutes(rand(1, 60)),
+            ];
+        });
+    }
+
+    /**
+     * Indicate if a token is old.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function old()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'created_at' => now()->subDays(rand(4, 10)),
+            ];
+        });
     }
 }

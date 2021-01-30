@@ -17,7 +17,7 @@ class CreateZohoOauthTable extends Migration
             $table->id();
             $table->string('refresh_token');
             $table->string('access_token');
-            $table->timestamp('expires_in');
+            $table->timestamp('expires_at');
             $table->timestamps();
         });
     }

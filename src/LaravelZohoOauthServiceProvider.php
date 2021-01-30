@@ -3,6 +3,7 @@
 namespace Njoguamos\LaravelZohoOauth;
 
 use Illuminate\Support\ServiceProvider;
+use Njoguamos\LaravelZohoOauth\Console\ZohoOauthPruneCommand;
 
 class LaravelZohoOauthServiceProvider extends ServiceProvider
 {
@@ -49,10 +50,10 @@ class LaravelZohoOauthServiceProvider extends ServiceProvider
 
     protected function registerCommands(): void
     {
-//        $this->app->bind('command.zoauth:init', ZohoOauthInitCommand::class);
-//
-//        $this->commands([
-//            'command.zoauth:init',
-//        ]);
+        $this->app->bind('command.zoauth:prune', ZohoOauthPruneCommand::class);
+
+        $this->commands([
+            'command.zoauth:prune',
+        ]);
     }
 }
