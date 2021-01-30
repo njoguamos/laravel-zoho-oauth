@@ -3,7 +3,6 @@
 namespace Njoguamos\LaravelZohoOauth\Tests\Feature;
 
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 use Njoguamos\LaravelZohoOauth\Tests\TestCase;
 
 class ZohoOauthInitCommandTest extends TestCase
@@ -21,7 +20,7 @@ class ZohoOauthInitCommandTest extends TestCase
     public function it_catches_invalid_code_error()
     {
         Http::fake([
-            $this->url => Http::response(["error" => "invalid_code",], 200)
+            $this->url => Http::response(['error' => 'invalid_code'], 200),
         ]);
 
         $this->artisan('zoauth:init')
@@ -32,10 +31,10 @@ class ZohoOauthInitCommandTest extends TestCase
     public function it_catches_invalid_client_error()
     {
         Http::fake([
-            $this->url => Http::response(["error" => "invalid_client",], 200)
+            $this->url => Http::response(['error' => 'invalid_client'], 200),
         ]);
 
         $this->artisan('zoauth:init')
-            ->expectsOutput("You have passed an invalid Client ID or secret. Specify the correct client ID and secret.");
+            ->expectsOutput('You have passed an invalid Client ID or secret. Specify the correct client ID and secret.');
     }
 }

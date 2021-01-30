@@ -23,7 +23,7 @@ class ZohoCredentials
         return $this->baseUrl.self::END_POINT;
     }
 
-    public function getRequestBody() : array
+    public function getRequestBody(): array
     {
         return [
             'code'          => $this->code,
