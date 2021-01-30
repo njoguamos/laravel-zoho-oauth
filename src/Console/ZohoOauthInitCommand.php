@@ -3,7 +3,7 @@
 namespace Njoguamos\LaravelZohoOauth\Console;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Http;
+use Njoguamos\LaravelZohoOauth\Models\ZohoOauth;
 use Njoguamos\LaravelZohoOauth\ZohoInit;
 
 class ZohoOauthInitCommand extends Command
@@ -29,17 +29,17 @@ class ZohoOauthInitCommand extends Command
      */
     public function handle()
     {
-        $response = app(ZohoInit::class)->getAuthorizationCode();
+        $responseData = app(ZohoInit::class)->getAuthorizationCode()->json();
 
-        $data = $response->json();
-
-        if (array_key_exists('error', $data)) {
-            $this->warn($this->getErrorDescription($data['error']));
+        if (array_key_exists('error', $responseData)) {
+            $this->warn($this->getErrorDescription($responseData['error']));
 
             return 0;
         }
 
-        // Data okay let us continue
+        ZohoOauth::create($this->getData($responseData));
+
+        $this->info('Successfully saved authorization codes to the database.');
 
         return 0;
     }
@@ -56,5 +56,16 @@ class ZohoOauthInitCommand extends Command
             default:
                 echo "An error occurred - {$error}";
         }
+    }
+
+    protected function getData($jsonData): array
+    {
+        return [
+            'access_token'  => $jsonData['access_token'],
+            'refresh_token' => $jsonData['refresh_token'],
+            'api_domain'    => $jsonData['api_domain'],
+            'token_type'    => $jsonData['token_type'],
+            'expires_at'    => now()->addSeconds($jsonData),
+        ];
     }
 }

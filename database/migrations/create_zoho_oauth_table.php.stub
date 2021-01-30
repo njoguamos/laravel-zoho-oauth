@@ -18,6 +18,8 @@ class CreateZohoOauthTable extends Migration
             $table->string('refresh_token');
             $table->string('access_token');
             $table->timestamp('expires_at');
+            $table->string('token_type')->nullable();
+            $table->string('api_domain')->nullable();
             $table->timestamps();
         });
     }

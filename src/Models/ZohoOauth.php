@@ -15,6 +15,8 @@ class ZohoOauth extends Model
         'expires_at' => 'datetime',
     ];
 
+    protected $guarded = [];
+
     protected function getAuthTokenAttribute()
     {
         return "Zoho-oauthtoken {$this->refresh_token}";
