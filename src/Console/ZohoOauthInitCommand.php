@@ -55,8 +55,11 @@ class ZohoOauthInitCommand extends Command
             case 'invalid_code':
                 return "Invalid Code. \n 1. The grant token has expired. Generate the access and refresh tokens before the grant token expires. \n 2. You have already used the grant token.\n 3. The refresh token to generate a new access token is wrong or revoked. Specify the correct refresh token value while refreshing an access token.";
                 break;
+            case 'invalid_client':
+                return "You have passed an invalid Client ID or secret. Specify the correct client ID and secret.";
+                break;
             default:
-                echo "An error occured - {$error}";
+                echo "An error occurred - {$error}";
         }
     }
 }
