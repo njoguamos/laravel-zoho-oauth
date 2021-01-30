@@ -14,7 +14,7 @@ abstract class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Njoguamos\\LaravelZohoOauth\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn(string $modelName) => 'Njoguamos\\LaravelZohoOauth\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
@@ -34,10 +34,11 @@ abstract class TestCase extends Orchestra
             'prefix'   => '',
         ]);
 
-        config()->set('laravel-zoho-oauth', [
-            'client_id'     => Str::random(32),
-            'client_secret' => Str::random(32),
-            'code'          => Str::random(45),
+        config()->set('zoho-oauth', [
+            'base_oauth_url' => 'https://accounts.zoho.com',
+            'client_id'      => Str::random(32),
+            'client_secret'  => Str::random(32),
+            'code'           => Str::random(45),
         ]);
 
         include_once __DIR__.'/../database/migrations/create_zoho_oauth_table.php.stub';

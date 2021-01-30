@@ -4,6 +4,7 @@ namespace Njoguamos\LaravelZohoOauth\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
+use Njoguamos\LaravelZohoOauth\ZohoInit;
 
 class ZohoOauthInitCommand extends Command
 {
@@ -28,13 +29,7 @@ class ZohoOauthInitCommand extends Command
      */
     public function handle()
     {
-        $response = Http::asForm()
-            ->post(config('zoho-oauth.base_oauth_url').'/oauth/v2/token', [
-                'code'          => config('zoho-outh.code'),
-                'client_id'     => config('zoho-outh.client_id'),
-                'client_secret' => config('zoho-outh.client_secret'),
-                'grant_type'    => 'authorization_code'
-            ]);
+        $response = app(ZohoInit::class)->getAuthorizationCode();
 
         $data = $response->json();
 

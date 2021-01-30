@@ -31,6 +31,14 @@ class ZohoOauthServiceProvider extends ServiceProvider
             return new ZohoOauth;
         });
 
+        $this->app->bind(ZohoInit::class, function ($app) {
+            $config = $app['config']->get('zoho-oauth');
+
+            return new ZohoInit(
+                new ZohoCredentials($config['base_oauth_url'], $config['client_id'], $config['client_secret'], $config['code'])
+            );
+        });
+
         $this->registerCommands();
     }
 
