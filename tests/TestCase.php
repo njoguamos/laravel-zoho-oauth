@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Njoguamos\LaravelZohoOauth\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -15,14 +14,14 @@ abstract class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn(string $modelName) => 'Njoguamos\\LaravelZohoOauth\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Njoguamos\\LaravelZohoOauth\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            LaravelZohoOauthServiceProvider::class
+            LaravelZohoOauthServiceProvider::class,
         ];
     }
 
@@ -41,7 +40,7 @@ abstract class TestCase extends Orchestra
             'code'          => Str::random(45),
         ]);
 
-        include_once(__DIR__.'/../database/migrations/create_zoho_oauth_table.php.stub');
+        include_once __DIR__.'/../database/migrations/create_zoho_oauth_table.php.stub';
         (new \CreateZohoOauthTable())->up();
     }
 }

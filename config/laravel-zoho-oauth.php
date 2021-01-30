@@ -72,5 +72,5 @@ return [
     | in your your env file
     |
     */
-    'scope'          => env('ZOHO_SCOPE', "ZohoInventory.items.READ")
+    'scope'          => env('ZOHO_SCOPE', 'ZohoInventory.items.READ'),
 ];

@@ -25,7 +25,7 @@ class ZohoOauthFactory extends Factory
         return [
             'refresh_token' => Str::random(32),
             'access_token'  => Str::random(40),
-            'expires_at'    => now()->addMinutes(50)
+            'expires_at'    => now()->addMinutes(50),
         ];
     }
 

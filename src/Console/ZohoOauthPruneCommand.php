@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Njoguamos\LaravelZohoOauth\Console;
 
 use Illuminate\Console\Command;
@@ -24,7 +23,6 @@ class ZohoOauthPruneCommand extends Command
      */
     protected $description = 'Delete all except the recent 10 Zoho Oauth tokens from database.';
 
-
     /**
      * Execute the console command.
      *
@@ -43,7 +41,7 @@ class ZohoOauthPruneCommand extends Command
             ->skip(self::TOKENS_TO_RETAIN)
             ->take($tokenCount)
             ->get()
-            ->each(fn($row) => $row->delete());
+            ->each(fn ($row) => $row->delete());
 
         $this->info('Old tokens removed successifully');
 
