@@ -11,19 +11,11 @@ class LaravelZohoOauthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->registerPublishables();
         /*
          * Optional methods to load your package assets
          */
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/laravel-zoho-oauth.php' => config_path('laravel-zoho-oauth.php'),
-            ], 'config');
-
-            // Registering package commands.
-            // $this->commands([]);
-        }
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     /**
@@ -31,12 +23,36 @@ class LaravelZohoOauthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/laravel-zoho-oauth.php', 'laravel-zoho-oauth');
 
-        // Register the main class to use with the facade
         $this->app->singleton('laravel-zoho-oauth', function () {
             return new LaravelZohoOauth;
         });
+
+        $this->registerCommands();
+    }
+
+    protected function registerPublishables(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/laravel-zoho-oauth.php' => config_path('laravel-zoho-oauth.php'),
+            ], 'config');
+
+            if (! class_exists('CreateZohoOauthTable')) {
+                $this->publishes([
+                    __DIR__.'/../database/migrations/create_zoho_oauth_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_zoho_oauth_table.php'),
+                ], 'migrations');
+            }
+        }
+    }
+
+    protected function registerCommands(): void
+    {
+//        $this->app->bind('command.zoauth:init', ZohoOauthInitCommand::class);
+//
+//        $this->commands([
+//            'command.zoauth:init',
+//        ]);
     }
 }
