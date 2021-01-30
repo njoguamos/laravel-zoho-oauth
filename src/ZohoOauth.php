@@ -2,7 +2,7 @@
 
 namespace Njoguamos\LaravelZohoOauth;
 
-class LaravelZohoOauth
+class ZohoOauth
 {
     // Build your next great package.
 }

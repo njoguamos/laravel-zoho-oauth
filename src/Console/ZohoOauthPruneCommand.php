@@ -31,6 +31,7 @@ class ZohoOauthPruneCommand extends Command
     public function handle()
     {
         $tokenCount = ZohoOauth::count();
+
         if ($tokenCount === 0) {
             $this->warn('Database empty, nothing to clean. Consider running zoauth:prune instead.');
 
@@ -43,7 +44,7 @@ class ZohoOauthPruneCommand extends Command
             ->get()
             ->each(fn ($row) => $row->delete());
 
-        $this->info('Old tokens removed successifully');
+        $this->info('Old tokens removed successfully');
 
         return 0;
     }

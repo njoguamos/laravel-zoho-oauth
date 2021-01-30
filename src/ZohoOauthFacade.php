@@ -4,10 +4,7 @@ namespace Njoguamos\LaravelZohoOauth;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \Njoguamos\LaravelZohoOauth\Skeleton\SkeletonClass
- */
-class LaravelZohoOauthFacade extends Facade
+class ZohoOauthFacade extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -16,6 +13,6 @@ class LaravelZohoOauthFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'laravel-zoho-oauth';
+        return 'zoho-oauth';
     }
 }

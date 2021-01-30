@@ -3,9 +3,10 @@
 namespace Njoguamos\LaravelZohoOauth;
 
 use Illuminate\Support\ServiceProvider;
+use Njoguamos\LaravelZohoOauth\Console\ZohoOauthInitCommand;
 use Njoguamos\LaravelZohoOauth\Console\ZohoOauthPruneCommand;
 
-class LaravelZohoOauthServiceProvider extends ServiceProvider
+class ZohoOauthServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -24,10 +25,10 @@ class LaravelZohoOauthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/laravel-zoho-oauth.php', 'laravel-zoho-oauth');
+        $this->mergeConfigFrom(__DIR__.'/../config/zoho-oauth.php', 'zoho-oauth');
 
-        $this->app->singleton('laravel-zoho-oauth', function () {
-            return new LaravelZohoOauth;
+        $this->app->singleton('zoho-oauth', function () {
+            return new ZohoOauth;
         });
 
         $this->registerCommands();
@@ -37,7 +38,7 @@ class LaravelZohoOauthServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/laravel-zoho-oauth.php' => config_path('laravel-zoho-oauth.php'),
+                __DIR__.'/../config/zoho-oauth.php' => config_path('zoho-oauth.php'),
             ], 'config');
 
             if (! class_exists('CreateZohoOauthTable')) {
@@ -50,9 +51,11 @@ class LaravelZohoOauthServiceProvider extends ServiceProvider
 
     protected function registerCommands(): void
     {
+        $this->app->bind('command.zoauth:init', ZohoOauthInitCommand::class);
         $this->app->bind('command.zoauth:prune', ZohoOauthPruneCommand::class);
 
         $this->commands([
+            'command.zoauth:init',
             'command.zoauth:prune',
         ]);
     }

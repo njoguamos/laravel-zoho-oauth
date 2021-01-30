@@ -27,7 +27,7 @@ class ZohoOauthPruneCommandTest extends TestCase
             ->old()->count(30)->create();
 
         $this->artisan('zoauth:prune')
-            ->expectsOutput('Old tokens removed successifully')
+            ->expectsOutput('Old tokens removed successfully')
             ->assertExitCode(0);
 
         $tokens = ZohoOauth::all();

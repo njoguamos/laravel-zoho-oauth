@@ -4,7 +4,7 @@ namespace Njoguamos\LaravelZohoOauth\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Njoguamos\LaravelZohoOauth\LaravelZohoOauthServiceProvider;
+use Njoguamos\LaravelZohoOauth\ZohoOauthServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -21,7 +21,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            LaravelZohoOauthServiceProvider::class,
+            ZohoOauthServiceProvider::class,
         ];
     }
 

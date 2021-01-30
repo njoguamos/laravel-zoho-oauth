@@ -17,6 +17,7 @@
   ],
   "require": {
     "php": "^7.4 | ^8.0",
+    "guzzlehttp/guzzle": "^7.2",
     "illuminate/database": "^8.0"
   },
   "require-dev": {
@@ -44,10 +45,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Njoguamos\\LaravelZohoOauth\\LaravelZohoOauthServiceProvider"
+        "ZohoOauthServiceProvider"
       ],
       "aliases": {
-        "LaravelZohoOauth": "Njoguamos\\LaravelZohoOauth\\LaravelZohoOauthFacade"
+        "LaravelZohoOauth": "ZohoOauthFacade"
       }
     }
   }
