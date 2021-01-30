@@ -2,7 +2,6 @@
 
 namespace Njoguamos\LaravelZohoOauth\Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Njoguamos\LaravelZohoOauth\Tests\TestCase;
 
 class ZohoOauthInitCommandTest extends TestCase
