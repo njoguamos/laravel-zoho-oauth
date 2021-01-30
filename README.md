@@ -6,7 +6,7 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/njoguamos/laravel-zoho-oauth.svg)](https://packagist.org/packages/njoguamos/laravel-zoho-oauth)
 ![Issues](https://img.shields.io/github/issues/njoguamos/laravel-zoho-oauth)
 
-Generate Zoho API access and refresh token in Laravel 7.* and 8.* applications.
+Generate Zoho API access and refresh token in Laravel 8 and up applications.
 
 ## Documentation, Installation, and Usage Instructions
 
