@@ -4,7 +4,7 @@ namespace Njoguamos\LaravelZohoOauth;
 
 class ZohoCredentials
 {
-    const END_POINT = '/oauth/v2/token';
+    const END_POINT = 'oauth/v2/token';
     protected string $baseUrl;
     protected string $clientId;
     protected string $clientSecret;

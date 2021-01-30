@@ -13,7 +13,7 @@ class ZohoOauthInitCommandTest extends TestCase
     {
         parent::setUp();
 
-        $this->url = config('zoho-oauth.base_oauth_url').'/oauth/v2/token';
+        $this->url = config('zoho-oauth.base_oauth_url').'oauth/v2/token';
     }
 
     /** @test */
