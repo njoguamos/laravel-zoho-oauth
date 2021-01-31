@@ -31,7 +31,7 @@ class ZohoOauthInitCommand extends Command
     {
         $response = app(ZohoInit::class)->getAuthorizationCode();
 
-        if (! $response->successful()) {
+        if (!$response->successful()){
             $this->alert('Unexpected error occurred. Please try again later.');
 
             return 0;
