@@ -3,7 +3,9 @@
   "description": "Generate Zoho API access and refresh token in Laravel 8.0 and up",
   "keywords": [
     "njoguamos",
-    "laravel-zoho-oauth"
+    "api",
+    "zoho",
+    "oauth"
   ],
   "homepage": "https://github.com/njoguamos/laravel-zoho-oauth",
   "license": "MIT",
@@ -45,10 +47,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "ZohoOauthServiceProvider"
+        "Njoguamos\\LaravelZohoOauth\\ZohoOauthServiceProvider"
       ],
       "aliases": {
-        "LaravelZohoOauth": "ZohoOauthFacade"
+        "ZohoOauth": "Njoguamos\\LaravelZohoOauth\\ZohoOauthFacade"
       }
     }
   }

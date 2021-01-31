@@ -45,7 +45,7 @@ return [
      | at the same time as Client ID.
      |
      */
-    'client_secret'  => env('ZOHO_CLIENT_ID'),
+    'client_secret'  => env('ZOHO_CLIENT_SECRET'),
 
     /*
      |--------------------------------------------------------------------------

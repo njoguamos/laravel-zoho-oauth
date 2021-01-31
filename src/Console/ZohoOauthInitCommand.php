@@ -29,7 +29,15 @@ class ZohoOauthInitCommand extends Command
      */
     public function handle()
     {
-        $responseData = app(ZohoInit::class)->getAuthorizationCode()->json();
+        $response = app(ZohoInit::class)->getAuthorizationCode();
+
+        if (! $response->successful()) {
+            $this->alert('Unexpected error occurred. Please try again later.');
+
+            return 0;
+        }
+
+        $responseData = $response->json();
 
         if (array_key_exists('error', $responseData)) {
             $this->warn($this->getErrorDescription($responseData['error']));
@@ -52,6 +60,9 @@ class ZohoOauthInitCommand extends Command
                 break;
             case 'invalid_client':
                 return 'You have passed an invalid Client ID or secret. Specify the correct client ID and secret.';
+                break;
+            case 'invalid_client_secret':
+                return 'You have passed an invalid Client secret. Specify the correct client secret.';
                 break;
             default:
                 echo "An error occurred - {$error}";
