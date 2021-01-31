@@ -33,6 +33,6 @@ class ZohoOauthPruneCommandTest extends TestCase
         $tokens = ZohoOauth::all();
 
         $this->assertDatabaseCount('zoho_oauth', 10);
-        $latestTokens->each(fn($oldToken) => $this->assertTrue($tokens->contains($oldToken)));
+        $latestTokens->each(fn ($oldToken) => $this->assertTrue($tokens->contains($oldToken)));
     }
 }

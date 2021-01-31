@@ -31,7 +31,7 @@ abstract class ZohoCredentials
     {
         return array_merge($this->getClientBody(), [
             'code'       => $this->code,
-            'grant_type' => 'authorization_code'
+            'grant_type' => 'authorization_code',
         ]);
     }
 
@@ -68,7 +68,7 @@ abstract class ZohoCredentials
     {
         return array_merge($this->getClientBody(), [
             'refresh_token' => $this->getRefreshToken(),
-            'grant_type'    => 'refresh_token'
+            'grant_type'    => 'refresh_token',
         ]);
     }
 
