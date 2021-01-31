@@ -17,8 +17,17 @@ class ZohoOauth extends Model
 
     protected $guarded = [];
 
+    protected $appends = [
+        'auth_token', 'is_expired',
+    ];
+
     protected function getAuthTokenAttribute()
     {
         return "Zoho-oauthtoken {$this->refresh_token}";
+    }
+
+    protected function getIsExpiredAttribute()
+    {
+        return $this->expires_at->isPast();
     }
 }

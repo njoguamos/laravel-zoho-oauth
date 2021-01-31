@@ -33,7 +33,7 @@ class ZohoOauthPruneCommand extends Command
         $tokenCount = ZohoOauth::count();
 
         if ($tokenCount === 0) {
-            $this->warn('Database empty, nothing to clean. Consider running zoauth:prune instead.');
+            $this->warn(trans('zoauth::zoauth.db_empty'));
 
             return 0;
         }

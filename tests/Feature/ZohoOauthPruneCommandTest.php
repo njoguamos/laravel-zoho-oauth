@@ -13,7 +13,7 @@ class ZohoOauthPruneCommandTest extends TestCase
         ZohoOauth::truncate();
 
         $this->artisan('zoauth:prune')
-            ->expectsOutput('Database empty, nothing to clean. Consider running zoauth:prune instead.')
+            ->expectsOutput(trans('zoauth::zoauth.db_empty'))
             ->assertExitCode(0);
     }
 

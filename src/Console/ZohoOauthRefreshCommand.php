@@ -3,23 +3,23 @@
 namespace Njoguamos\LaravelZohoOauth\Console;
 
 use Illuminate\Console\Command;
-use Njoguamos\LaravelZohoOauth\ZohoOauthInit;
+use Njoguamos\LaravelZohoOauth\ZohoOauthRefresh;
 
-class ZohoOauthInitCommand extends Command
+class ZohoOauthRefreshCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'zoauth:init';
+    protected $signature = 'zoauth:refresh';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Initialize Zoho oauth refresh_token and access_token.';
+    protected $description = 'Generate new access token from refresh token.';
 
     /**
      * Execute the console command.
@@ -28,7 +28,7 @@ class ZohoOauthInitCommand extends Command
      */
     public function handle()
     {
-        $this->info(app(ZohoOauthInit::class)->initializeTokens());
+        $this->info(app(ZohoOauthRefresh::class)->generateNewRefreshToken());
 
         return 0;
     }
