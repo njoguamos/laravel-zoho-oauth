@@ -68,7 +68,7 @@ class ZohoOauthServiceProvider extends ServiceProvider
             $this->commands([
                 ZohoOauthInitCommand::class,
                 ZohoOauthRefreshCommand::class,
-                ZohoOauthPruneCommand::class
+                ZohoOauthPruneCommand::class,
             ]);
         }
     }

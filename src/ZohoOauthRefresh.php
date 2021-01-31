@@ -20,7 +20,7 @@ class ZohoOauthRefresh extends ZohoCredentials implements ZohoCredentialsInterfa
 
         $this->saveTokensToDb($this->prepareData($responseData));
 
-        return "Successfully saved authorization codes to the database.";
+        return 'Successfully saved authorization codes to the database.';
     }
 
     public function prepareData(array $responseData): array

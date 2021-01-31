@@ -18,7 +18,7 @@ abstract class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn(string $modelName) => 'Njoguamos\\LaravelZohoOauth\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Njoguamos\\LaravelZohoOauth\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
 
         $this->url = app(ZohoOauthRefresh::class)->getEndPointUrl();

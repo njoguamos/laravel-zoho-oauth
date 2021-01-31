@@ -32,10 +32,10 @@ class ZohoOauthRefreshCommandTest extends TestCase
     public function it_saves_access_tokens_to_database_on_success_response()
     {
         $successResponse = [
-            "access_token" => "1000.27c1b6b28ac001d410f06c41f4fc5d5a.8f461e4c2cc966e8aaccba8f34fca395",
-            "api_domain"   => "https://www.zohoapis.com",
-            "token_type"   => "Bearer",
-            "expires_in"   => 3600,
+            'access_token' => '1000.27c1b6b28ac001d410f06c41f4fc5d5a.8f461e4c2cc966e8aaccba8f34fca395',
+            'api_domain'   => 'https://www.zohoapis.com',
+            'token_type'   => 'Bearer',
+            'expires_in'   => 3600,
         ];
 
         $this->mockASuccessfulResponse($successResponse);
