@@ -11,7 +11,7 @@ class ZohoOauthTest extends TestCase
     public function it_can_return_auth_token_attribute()
     {
         $token = ZohoOauth::factory()->create([
-            'refresh_token' => '1000.41d9f2cfbd1b7a8f9e314b7aff7bc2d1.8fcc9810810a216793f385b9dd6e125f',
+            'access_token' => '1000.41d9f2cfbd1b7a8f9e314b7aff7bc2d1.8fcc9810810a216793f385b9dd6e125f',
         ]);
 
         $this->assertSame($token->auth_token, 'Zoho-oauthtoken 1000.41d9f2cfbd1b7a8f9e314b7aff7bc2d1.8fcc9810810a216793f385b9dd6e125f');

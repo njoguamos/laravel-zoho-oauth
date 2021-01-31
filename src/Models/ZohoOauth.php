@@ -23,7 +23,7 @@ class ZohoOauth extends Model
 
     protected function getAuthTokenAttribute()
     {
-        return "Zoho-oauthtoken {$this->refresh_token}";
+        return "Zoho-oauthtoken {$this->access_token}";
     }
 
     protected function getIsExpiredAttribute()
