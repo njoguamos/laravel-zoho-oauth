@@ -15,9 +15,7 @@ class ZohoOauthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPublishables();
-        /*
-         * Optional methods to load your package assets
-         */
+
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
@@ -41,8 +39,13 @@ class ZohoOauthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/zoho-oauth.php', 'zoho-oauth');
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'zoauth');
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/zoho-oauth.php', 'zoho-oauth'
+        );
+
+        $this->loadTranslationsFrom(
+            __DIR__.'/../resources/lang/', 'zoauth'
+        );
 
         $this->app->bind(ZohoOauthInit::class, function ($app) {
             $config = $app['config']->get('zoho-oauth');
@@ -61,14 +64,12 @@ class ZohoOauthServiceProvider extends ServiceProvider
 
     protected function registerCommands(): void
     {
-        $this->app->bind('command.zoauth:init', ZohoOauthInitCommand::class);
-        $this->app->bind('command.zoauth:refresh', ZohoOauthRefreshCommand::class);
-        $this->app->bind('command.zoauth:prune', ZohoOauthPruneCommand::class);
-
-        $this->commands([
-            'command.zoauth:init',
-            'command.zoauth:refresh',
-            'command.zoauth:prune',
-        ]);
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                ZohoOauthInitCommand::class,
+                ZohoOauthRefreshCommand::class,
+                ZohoOauthPruneCommand::class
+            ]);
+        }
     }
 }
