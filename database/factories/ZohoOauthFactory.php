@@ -56,4 +56,32 @@ class ZohoOauthFactory extends Factory
             ];
         });
     }
+
+    /**
+     * Indicate if a token is valid.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function valid()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'expires_at' => now()->addMinutes(rand(20, 50)),
+            ];
+        });
+    }
+
+    /**
+     * Indicate if a token is expired.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function expired()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'expires_at' => now()->subMinutes(rand(20, 50)),
+            ];
+        });
+    }
 }
