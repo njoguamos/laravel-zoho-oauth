@@ -42,7 +42,7 @@ class ZohoOauthPruneCommand extends Command
             ->skip(self::TOKENS_TO_RETAIN)
             ->take($tokenCount)
             ->get()
-            ->each(fn($row) => $row->delete());
+            ->each(fn ($row) => $row->delete());
 
         $this->info('Old tokens removed successfully');
 
