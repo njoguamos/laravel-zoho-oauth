@@ -13,7 +13,7 @@ class ZohoOauthPruneCommandTest extends TestCase
         ZohoOauth::truncate();
 
         $this->artisan('zoauth:prune')
-            ->expectsOutput('Database empty, nothing to clean. Consider running zoauth:prune instead.')
+            ->expectsOutput(trans('zoauth::zoauth.db_empty'))
             ->assertExitCode(0);
     }
 
@@ -33,6 +33,6 @@ class ZohoOauthPruneCommandTest extends TestCase
         $tokens = ZohoOauth::all();
 
         $this->assertDatabaseCount('zoho_oauth', 10);
-        $latestTokens->each(fn ($oldToken) => $this->assertTrue($tokens->contains($oldToken)));
+        $latestTokens->each(fn($oldToken) => $this->assertTrue($tokens->contains($oldToken)));
     }
 }

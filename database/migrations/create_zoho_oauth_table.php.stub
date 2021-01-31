@@ -15,8 +15,8 @@ class CreateZohoOauthTable extends Migration
     {
         Schema::create('zoho_oauth', function (Blueprint $table) {
             $table->id();
-            $table->string('refresh_token');
-            $table->string('access_token');
+            $table->string('refresh_token')->index();
+            $table->string('access_token')->unique();
             $table->timestamp('expires_at');
             $table->string('token_type')->nullable();
             $table->string('api_domain')->nullable();
