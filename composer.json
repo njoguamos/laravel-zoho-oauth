@@ -48,10 +48,7 @@
     "laravel": {
       "providers": [
         "Njoguamos\\LaravelZohoOauth\\ZohoOauthServiceProvider"
-      ],
-      "aliases": {
-        "ZohoOauth": "Njoguamos\\LaravelZohoOauth\\ZohoOauthFacade"
-      }
+      ]
     }
   }
 }
