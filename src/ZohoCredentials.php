@@ -2,7 +2,7 @@
 
 namespace Njoguamos\LaravelZohoOauth;
 
-use http\Exception\RuntimeException;
+use RuntimeException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 use Njoguamos\LaravelZohoOauth\Models\ZohoOauth;
