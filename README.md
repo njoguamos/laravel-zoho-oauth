@@ -1,9 +1,10 @@
-![Image](https://github.com/njoguamos/laravel-zoho-oauth/blob/gh-pages/images/Cover.png)
+![Image](https://github.com/njoguamos/laravel-zoho-oauth/blob/main/docs/images/Cover.png)
 # Generate Zoho API Access and Refresh Token
 
 ![Tests](https://github.com/njoguamos/laravel-zoho-oauth/workflows/run-tests/badge.svg)
 [![License](https://img.shields.io/github/license/njoguamos/laravel-zoho-oauth.svg)](https://github.com/njoguamos/laravel-zoho-oauth)
 [![Latest Stable Version](https://img.shields.io/packagist/v/njoguamos/laravel-zoho-oauth.svg)](https://packagist.org/packages/njoguamos/laravel-zoho-oauth)
+![Downloads](https://img.shields.io/packagist/dt/njoguamos/laravel-zoho-oauth)
 ![Issues](https://img.shields.io/github/issues/njoguamos/laravel-zoho-oauth)
 
 Generate Zoho API access and refresh token in Laravel 8 and up applications.
