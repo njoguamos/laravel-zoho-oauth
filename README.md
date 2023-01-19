@@ -1,4 +1,4 @@
-![Image](https://github.com/njoguamos/laravel-zoho-oauth/blob/gh-pages/images/Cover.png)
+![Image](https://github.com/njoguamos/laravel-zoho-oauth/blob/main/docs/images/Cover.png)
 # Generate Zoho API Access and Refresh Token
 
 ![Tests](https://github.com/njoguamos/laravel-zoho-oauth/workflows/run-tests/badge.svg)
