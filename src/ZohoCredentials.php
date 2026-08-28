@@ -19,19 +19,22 @@ abstract class ZohoCredentials
 
     protected string $code;
 
-    public function __construct(string $baseUrl, string $clientId, string $clientSecret, string $code)
+    protected string $redirectUri;
+
+    public function __construct(string $baseUrl, string $clientId, string $clientSecret, string $code, string $redirectUri)
     {
         $this->baseUrl = $baseUrl;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->code = $code;
+        $this->redirectUri = $redirectUri;
     }
 
     public function getInitCredentials(): array
     {
         return array_merge($this->getClientBody(), [
             'code'       => $this->code,
-            'grant_type' => 'authorization_code',
+            'grant_type' => 'authorization_code'
         ]);
     }
 
@@ -40,6 +43,7 @@ abstract class ZohoCredentials
         return [
             'client_id'     => $this->clientId,
             'client_secret' => $this->clientSecret,
+            'redirect_uri' => $this->redirectUri
         ];
     }
 

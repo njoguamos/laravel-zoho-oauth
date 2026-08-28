@@ -59,4 +59,6 @@ return [
      |
      */
     'code'           => env('ZOHO_CODE'),
+
+    'redirect_uri'    => env('ZOHO_REDIRECT_URI'),
 ];
